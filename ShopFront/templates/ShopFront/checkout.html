@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Checkout</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% load custom_filters %}
+
+        {% for product in products %}
+        <tr>
+            <td>{{ product.name }}</td>
+            <td>{{ cart|get_item:product.id }}</td>
+            <td>{{ product.price }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<p>Total Amount: {{ total_amount }}</p>
+
+<form method="post" action="{% url 'checkout' %}">
+    {% csrf_token %}
+    <!-- Add form fields for capturing user details -->
+    <!-- For example: name, address, payment information, etc. -->
+
+    <button type="submit">Place Order</button>
+</form>
+{% endblock %}
