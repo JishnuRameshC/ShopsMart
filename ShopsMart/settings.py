@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'ShopFront',
     'django.contrib.staticfiles',
 ]
 
@@ -111,6 +112,8 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
+
+MEDIA_ROOT = '/path/to/media/'
 
 
 # Static files (CSS, JavaScript, Images)

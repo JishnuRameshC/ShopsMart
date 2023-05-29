@@ -21,11 +21,12 @@ class Category(models.Model):
 
 class Customer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    phone = models.CharField(max_length=20)
-    address = models.TextField()
+    full_name = models.CharField(max_length=100)
+    email = models.EmailField()
 
     def __str__(self):
-        return self.user.username
+        return self.full_name
+
     
 
 class Order(models.Model):
